@@ -1,0 +1,8 @@
+<button class="btn btn-success" (click)="showElementBtnClick(1)">
+  showForm
+</button>
+<button class="btn btn-primary" (click)="showElementBtnClick(2)">
+  showCard
+</button>
+<app-movies-form (movieAddedEmiiter)="addedMovieSubs($event)" *ngIf="elementToShow === 1"></app-movies-form>
+<app-movies-card [moviesList]="movies" *ngIf="elementToShow === 2"></app-movies-card>

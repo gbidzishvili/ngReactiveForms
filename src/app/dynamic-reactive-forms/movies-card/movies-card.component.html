@@ -1,0 +1,25 @@
+<section class="col-11" *ngFor="let movie of moviesList">
+  <article>
+    <div class="card mb-3">
+      <img
+        src=" {{ movie.bannerImageSrc | json }}"
+        alt=""
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">{{ movie.genre }}</p>
+        <p class="card-text">
+          <small class="text-body-secondary">{{ movie.description }}</small>
+        </p>
+        <p class="card-text">{{ movie.imdb }}</p>
+
+        <div class="card-title" *ngFor="let castItem of movie.cast">
+          <p class="card-text">{{ castItem.fullName }}</p>
+          <p class="card-text">{{ castItem.character }}</p>
+          <p class="card-text">{{ castItem.imageSource }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
