@@ -1,0 +1,49 @@
+<form
+  [formGroup]="userForm"
+  class="col-7 m-auto mt-5"
+  (ngSubmit)="onSubmitBtnClick()"
+>
+  <div class="mb-3">
+    <label for="" class="form-label">Enter fullName</label>
+    <input formControlName="fullName" type="text" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Enter email</label>
+    <input formControlName="email" type="text" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Choose status</label>
+    <!-- <select formControlName="status" type="text" class="form-control" /> -->
+    <select
+      formControlName="status"
+      class="form-select form-select"
+      name=""
+      id=""
+    >
+      <option value="Owner">Owner</option>
+      <option value="Admin">Admin</option>
+      <option value="Developer">Developer</option>
+    </select>
+    <div formGroupName="jobInfo">
+      <div class="mb-3">
+        <label for="" class="form-label">Enter position</label>
+        <input formControlName="position" type="text" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Enter experience</label>
+        <input formControlName="experience" type="text" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Enter description</label>
+        <textarea
+          rows="3"
+          cols="20"
+          formControlName="description"
+          type="text"
+          class="form-control"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

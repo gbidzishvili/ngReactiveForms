@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">fullName</th>
+      <th scope="col">email</th>
+      <th scope="col">status</th>
+      <th scope="col">registrationDate</th>
+      <th scope="col">position</th>
+      <th scope="col">experience</th>
+      <th scope="col">description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let language of languageCode">
+      <!-- <p>{{ language | json }}</p> -->
+      <td>{{ language | languageChanger }}</td>
+    </tr>
+  </tbody>
+  <button (click)="changeLanguage()">change language</button>
+</table>
