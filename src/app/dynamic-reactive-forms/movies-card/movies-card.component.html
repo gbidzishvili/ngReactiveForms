@@ -2,7 +2,8 @@
   <article>
     <div class="card mb-3">
       <img
-        src=" {{ movie.bannerImageSrc | json }}"
+        style="width: 200px"
+        [src]="movie.bannerImageSrc"
         alt=""
         class="card-img-top"
       />
@@ -17,7 +18,11 @@
         <div class="card-title" *ngFor="let castItem of movie.cast">
           <p class="card-text">{{ castItem.fullName }}</p>
           <p class="card-text">{{ castItem.character }}</p>
-          <p class="card-text">{{ castItem.imageSource }}</p>
+          <img
+            style="width: 200px"
+            [src]="castItem.imageSource"
+            class="card-text"
+          />/>
         </div>
       </div>
     </div>

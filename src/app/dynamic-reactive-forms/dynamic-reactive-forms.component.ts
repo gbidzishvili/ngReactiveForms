@@ -13,7 +13,7 @@ export class DynamicReactiveFormsComponent {
     this.elementToShow = number;
   }
   addedMovieSubs(movie: any) {
-    console.log('parent', movie);
-    this.movies.push(...movie);
+    console.log('movieIs', movie);
+    this.movies = this.movies.concat(movie);
   }
 }

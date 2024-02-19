@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
-
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-movies-form',
   templateUrl: './movies-form.component.html',
@@ -18,6 +18,7 @@ export class MoviesFormComponent {
   movieForm!: FormGroup;
   @Output()
   movieAddedEmiiter: EventEmitter<any> = new EventEmitter();
+  sanitizer: any;
 
   constructor(private formBuilder: FormBuilder) {
     this.movieForm = this.formBuilder.group({
@@ -34,9 +35,7 @@ export class MoviesFormComponent {
   }
   getNewMovie(): FormGroup {
     return new FormGroup({
-      bannerImageSrc: new FormControl(
-        'https://tse3.mm.bing.net/th?id=OIP.hqgXmy-r13g-63xcvlz6AwHaE7&pid=Api&P=0&h=220'
-      ),
+      bannerImageSrc: new FormControl(null),
       title: new FormControl(null),
       genre: new FormControl(null),
       description: new FormControl(null),
@@ -56,7 +55,6 @@ export class MoviesFormComponent {
   }
   onSubmitBtnClick() {
     this.movieAddedEmiiter.emit(this.movieForm.value.movies);
-    console.log(this.movieForm, 'value is:');
     this.initForm();
   }
   // ------------------Functions to work with markup ----------------
